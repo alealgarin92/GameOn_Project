@@ -1,114 +1,257 @@
 fileFormatVersion: 2
 guid: eb7ddb90088d3464292abef6637ee7f0
-timeCreated: 1493106829
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: shelf_01
-    100004: shelf_02
-    100006: shelf_03
-    100008: shelf_04
-    100010: shelf_05
-    100012: shelf_06
-    100014: shelf_07
-    100016: shelf_08
-    100018: shelf_09
-    100020: shelf_10
-    100022: shelf_11
-    400000: //RootNode
-    400002: shelf_01
-    400004: shelf_02
-    400006: shelf_03
-    400008: shelf_04
-    400010: shelf_05
-    400012: shelf_06
-    400014: shelf_07
-    400016: shelf_08
-    400018: shelf_09
-    400020: shelf_10
-    400022: shelf_11
-    2300000: shelf_01
-    2300002: shelf_02
-    2300004: shelf_03
-    2300006: shelf_04
-    2300008: shelf_05
-    2300010: shelf_06
-    2300012: shelf_07
-    2300014: shelf_08
-    2300016: shelf_09
-    2300018: shelf_10
-    2300020: shelf_11
-    3300000: shelf_01
-    3300002: shelf_02
-    3300004: shelf_03
-    3300006: shelf_04
-    3300008: shelf_05
-    3300010: shelf_06
-    3300012: shelf_07
-    3300014: shelf_08
-    3300016: shelf_09
-    3300018: shelf_10
-    3300020: shelf_11
-    4300000: shelf_03
-    4300002: shelf_02
-    4300004: shelf_04
-    4300006: shelf_05
-    4300008: shelf_06
-    4300010: shelf_07
-    4300012: shelf_08
-    4300014: shelf_09
-    4300016: shelf_10
-    4300018: shelf_11
-    4300020: shelf_01
+  serializedVersion: 22200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: shelf_01
+  - first:
+      1: 100004
+    second: shelf_02
+  - first:
+      1: 100006
+    second: shelf_03
+  - first:
+      1: 100008
+    second: shelf_04
+  - first:
+      1: 100010
+    second: shelf_05
+  - first:
+      1: 100012
+    second: shelf_06
+  - first:
+      1: 100014
+    second: shelf_07
+  - first:
+      1: 100016
+    second: shelf_08
+  - first:
+      1: 100018
+    second: shelf_09
+  - first:
+      1: 100020
+    second: shelf_10
+  - first:
+      1: 100022
+    second: shelf_11
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: shelf_01
+  - first:
+      4: 400004
+    second: shelf_02
+  - first:
+      4: 400006
+    second: shelf_03
+  - first:
+      4: 400008
+    second: shelf_04
+  - first:
+      4: 400010
+    second: shelf_05
+  - first:
+      4: 400012
+    second: shelf_06
+  - first:
+      4: 400014
+    second: shelf_07
+  - first:
+      4: 400016
+    second: shelf_08
+  - first:
+      4: 400018
+    second: shelf_09
+  - first:
+      4: 400020
+    second: shelf_10
+  - first:
+      4: 400022
+    second: shelf_11
+  - first:
+      23: 2300000
+    second: shelf_01
+  - first:
+      23: 2300002
+    second: shelf_02
+  - first:
+      23: 2300004
+    second: shelf_03
+  - first:
+      23: 2300006
+    second: shelf_04
+  - first:
+      23: 2300008
+    second: shelf_05
+  - first:
+      23: 2300010
+    second: shelf_06
+  - first:
+      23: 2300012
+    second: shelf_07
+  - first:
+      23: 2300014
+    second: shelf_08
+  - first:
+      23: 2300016
+    second: shelf_09
+  - first:
+      23: 2300018
+    second: shelf_10
+  - first:
+      23: 2300020
+    second: shelf_11
+  - first:
+      33: 3300000
+    second: shelf_01
+  - first:
+      33: 3300002
+    second: shelf_02
+  - first:
+      33: 3300004
+    second: shelf_03
+  - first:
+      33: 3300006
+    second: shelf_04
+  - first:
+      33: 3300008
+    second: shelf_05
+  - first:
+      33: 3300010
+    second: shelf_06
+  - first:
+      33: 3300012
+    second: shelf_07
+  - first:
+      33: 3300014
+    second: shelf_08
+  - first:
+      33: 3300016
+    second: shelf_09
+  - first:
+      33: 3300018
+    second: shelf_10
+  - first:
+      33: 3300020
+    second: shelf_11
+  - first:
+      43: 4300000
+    second: shelf_03
+  - first:
+      43: 4300002
+    second: shelf_02
+  - first:
+      43: 4300004
+    second: shelf_04
+  - first:
+      43: 4300006
+    second: shelf_05
+  - first:
+      43: 4300008
+    second: shelf_06
+  - first:
+      43: 4300010
+    second: shelf_07
+  - first:
+      43: 4300012
+    second: shelf_08
+  - first:
+      43: 4300014
+    second: shelf_09
+  - first:
+      43: 4300016
+    second: shelf_10
+  - first:
+      43: 4300018
+    second: shelf_11
+  - first:
+      43: 4300020
+    second: shelf_01
+  externalObjects: {}
   materials:
-    importMaterials: 1
-    materialName: 1
+    materialImportMode: 1
+    materialName: 2
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1.3
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 42
     secondaryUVAreaDistortion: 41
     secondaryUVHardAngle: 134
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 27
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -118,14 +261,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.033019997
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
