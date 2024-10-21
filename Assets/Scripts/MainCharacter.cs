@@ -21,6 +21,7 @@ public class CharacterBehavior : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
+    
 
     private float shootingCooldown;
 
@@ -46,7 +47,18 @@ public class CharacterBehavior : MonoBehaviour
 
         movementDir = movementDir.normalized;
         Move(movementDir);
+
+        
+
+
     }
+
+
+    
+
+  
+
+
 
     private void FixedUpdate()
     {
