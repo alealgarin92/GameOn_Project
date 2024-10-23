@@ -21,7 +21,9 @@ public class CharacterBehavior : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
-    
+    [SerializeField] private Camera camera; // Referencia a la cámara
+
+
 
     private float shootingCooldown;
 
@@ -48,15 +50,24 @@ public class CharacterBehavior : MonoBehaviour
         movementDir = movementDir.normalized;
         Move(movementDir);
 
-        
+    }
+
+    private void Move(Vector2 movementDir)
+    {
+        //Vector3 movement = new Vector3(movementDir.x, 0,movementDir.y);
+        //Agarro el vector derecha del jugador y lo multiplico por x
+        Vector3 right = transform.right * movementDir.x;
+        //Agarro el vector adelante del jugador y lo multiplico por y
+        Vector3 forward = transform.forward * movementDir.y;
+        //SUmo ambos vectores
+        Vector3 direction = right + forward;
 
 
+        transform.position += direction * movementSpeed * Time.deltaTime;
     }
 
 
-    
 
-  
 
 
 
@@ -80,19 +91,6 @@ public class CharacterBehavior : MonoBehaviour
 
     }
    
-    private void Move(Vector2 movementDir)
-    {
-        //Vector3 movement = new Vector3(movementDir.x, 0,movementDir.y);
-        //Agarro el vector derecha del jugador y lo multiplico por x
-        Vector3 right = transform.right * movementDir.x;
-        //Agarro el vector adelante del jugador y lo multiplico por y
-        Vector3 forward = transform.forward * movementDir.y;
-        //SUmo ambos vectores
-        Vector3 direction = right + forward;
-
-
-        transform.position += direction * movementSpeed * Time.deltaTime;
-    }
 
     private void StartWalking()
     {
