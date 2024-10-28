@@ -17,7 +17,7 @@ public class CharacterBehavior : MonoBehaviour
 
     [SerializeField] private Vector3 startingRotation;
 
-    [SerializeField] private Animator mouseAnimator;
+    [SerializeField] private Animator characterAnimator;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
@@ -51,6 +51,14 @@ public class CharacterBehavior : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+        }
+        if (Input.GetKey("w"))
+        {
+            StartWalking();
+        }
+        else
+        {
+            Idle();
         }
 
         movementDir = movementDir.normalized;
@@ -123,12 +131,17 @@ public class CharacterBehavior : MonoBehaviour
 
     private void StartWalking()
     {
-        mouseAnimator.SetBool("isWalking", true);
+        characterAnimator.SetBool("isWalking", true);
+    }
+
+    private void StartRuning()
+    {
+        characterAnimator.SetBool("isRunning", true);
     }
 
     private void Idle()
     {
-        mouseAnimator.SetBool("isWalking", false);
+        characterAnimator.SetBool("isWalking", false);
     }
 
     public void Heal(float healAmount)
