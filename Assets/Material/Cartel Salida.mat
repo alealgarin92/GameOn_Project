@@ -28,6 +28,7 @@ Material:
   - _ALPHATEST_ON
   - _METALLICSPECGLOSSMAP
   - _NORMALMAP
+  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -61,5 +62,6 @@ Material:
     - _AlphaClip: 1
     - _AlphaToMask: 1
     - _Cutoff: 0.487
+    - _SmoothnessTextureChannel: 1
     m_Colors: []
   m_BuildTextureStacks: []
