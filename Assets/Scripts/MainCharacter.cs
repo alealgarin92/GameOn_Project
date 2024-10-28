@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterBehavior : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
+    [SerializeField] private Vector2 mouseSensitivity;
     [SerializeField] private Transform raycastOrigin;
 
     [SerializeField] private float maxHealth;
@@ -21,16 +22,19 @@ public class CharacterBehavior : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
-    [SerializeField] private Camera camera; // Referencia a la cámara
 
-
-
+    private Camera camera;
     private float shootingCooldown;
 
     private void Awake()
     {
         health = maxHealth;
+
+        //Linea que nos ayuda a boquear el puntero una vez presionado play
+        Cursor.lockState = CursorLockMode.Locked;
+        camera = Camera.main;
     }
+
 
     private void Update()
     {
@@ -41,6 +45,8 @@ public class CharacterBehavior : MonoBehaviour
 
         Vector2 movementDir = new Vector2(horizontal, vertical);
 
+        
+        
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -50,6 +56,29 @@ public class CharacterBehavior : MonoBehaviour
         movementDir = movementDir.normalized;
         Move(movementDir);
 
+        LookAtMouseDirection();
+
+    }
+
+    private void LookAtMouseDirection()
+    {
+        float horizontal = Input.GetAxis("Mouse X");
+        float vertical = Input.GetAxis("Mouse Y");
+
+        if (horizontal != 0)
+        {
+            transform.Rotate(0, horizontal * mouseSensitivity.x, 0);
+        }
+
+        if (vertical != 0) 
+        {
+            Vector3 rotation = camera.transform.localEulerAngles;
+            rotation.x = (rotation.x - vertical * mouseSensitivity.y + 360) % 360;
+            if (rotation.x > 80 && rotation.x < 180) {rotation.x = 80;} else
+            if (rotation.x < 280 && rotation.x > 180) { rotation.x = 280;}
+
+            camera.transform.localEulerAngles = rotation;
+        }
     }
 
     private void Move(Vector2 movementDir)
