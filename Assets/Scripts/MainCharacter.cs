@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterBehavior : MonoBehaviour
+public class MainCharacter : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private Vector2 mouseSensitivity;
