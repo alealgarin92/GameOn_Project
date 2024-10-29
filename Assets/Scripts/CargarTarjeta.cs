@@ -8,7 +8,7 @@ public class CargarTarjeta : MonoBehaviour
     [SerializeField] private float pesos;
 
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         Recarga(other.gameObject);
 
@@ -17,14 +17,12 @@ public class CargarTarjeta : MonoBehaviour
     public void Recarga(GameObject tarjetasube)
 
     {
-        var TarjetaSube = tarjetaSube.GetComponent<Tarjeta>();
+        Tarjeta tarjetaSube = tarjetasube.GetComponent<Tarjeta>();
         if (tarjetaSube != null)
         {
-            TarjetaSube.Recarga(pesos * Time.fixedDeltaTime);
+            tarjetaSube.Recarga(pesos * Time.fixedDeltaTime);
         }
     }
-
-
 }
 
 

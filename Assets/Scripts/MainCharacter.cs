@@ -23,7 +23,7 @@ public class CharacterBehavior : MonoBehaviour
     [SerializeField] private AudioClip audioClip;
 
 
-    private Camera camera;
+    private Camera camara;
     private float shootingCooldown;
 
     private void Awake()
@@ -32,7 +32,7 @@ public class CharacterBehavior : MonoBehaviour
 
         //Linea que nos ayuda a boquear el puntero una vez presionado play
         Cursor.lockState = CursorLockMode.Locked;
-        camera = Camera.main;
+        camara = Camera.main;
     }
 
 
@@ -80,12 +80,12 @@ public class CharacterBehavior : MonoBehaviour
 
         if (vertical != 0) 
         {
-            Vector3 rotation = camera.transform.localEulerAngles;
+            Vector3 rotation = camara.transform.localEulerAngles;
             rotation.x = (rotation.x - vertical * mouseSensitivity.y + 360) % 360;
             if (rotation.x > 80 && rotation.x < 180) {rotation.x = 80;} else
             if (rotation.x < 280 && rotation.x > 180) { rotation.x = 280;}
 
-            camera.transform.localEulerAngles = rotation;
+            camara.transform.localEulerAngles = rotation;
         }
     }
 

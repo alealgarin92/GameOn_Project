@@ -8,14 +8,15 @@ public class Tarjeta : MonoBehaviour
 
     [SerializeField] private float dinero;
 
-    private void Awake()
+    private void Update()
     {
-        dinero = 0;
+        Recarga(dinero);
     }
 
-    public void Recarga(float recargaDinero)
+
+    public void Recarga(float pesos)
     {
-        dinero += recargaDinero;
+        dinero += pesos;
 
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3252100208231348952}
   - component: {fileID: 3032973908625919107}
   - component: {fileID: 8579532634617182201}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SueloModularModular_LP003 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
