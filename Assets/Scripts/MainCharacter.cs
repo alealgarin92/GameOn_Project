@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MainCharacter : MonoBehaviour
@@ -33,6 +35,8 @@ public class MainCharacter : MonoBehaviour
         //Linea que nos ayuda a boquear el puntero una vez presionado play
         Cursor.lockState = CursorLockMode.Locked;
         camera = Camera.main;
+
+        characterAnimator = GetComponent<Animator>();
     }
 
 
@@ -52,20 +56,39 @@ public class MainCharacter : MonoBehaviour
         {
             Jump();
         }
-        if (Input.GetKey("w"))
-        {
-            StartWalking();
-        }
-        else
-        {
-            Idle();
-        }
+
+        MainCharacterMovements();
 
         movementDir = movementDir.normalized;
         Move(movementDir);
 
         LookAtMouseDirection();
 
+    }
+
+    private void MainCharacterMovements()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            movementSpeed = 4;
+            StartRuning();
+
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            movementSpeed = 2;
+            StartWalking();
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            movementSpeed = 2;
+            StartWalkingBack();
+
+        }
+        else
+        {
+            Idle();
+        }
     }
 
     private void LookAtMouseDirection()
@@ -132,8 +155,13 @@ public class MainCharacter : MonoBehaviour
     private void StartWalking()
     {
         characterAnimator.SetBool("isWalking", true);
+        characterAnimator.SetBool("isRunning", false);
     }
 
+    private void StartWalkingBack()
+    {
+        characterAnimator.SetBool("isWalkingBack", true);
+    }
     private void StartRuning()
     {
         characterAnimator.SetBool("isRunning", true);
@@ -142,11 +170,16 @@ public class MainCharacter : MonoBehaviour
     private void Idle()
     {
         characterAnimator.SetBool("isWalking", false);
+        characterAnimator.SetBool("isRunning", false);
+        characterAnimator.SetBool("isWalkingBack", false);
     }
 
     public void Heal(float healAmount)
     {
-        health += healAmount;
+        if (health < 100)
+        {
+            health += healAmount;
+        }
     }
 
     private void OnDrawGizmos()
