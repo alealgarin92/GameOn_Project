@@ -24,6 +24,7 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
+    [SerializeField] private float tarjetasube;
 
     private Camera camera;
     private float shootingCooldown;
@@ -49,8 +50,8 @@ public class MainCharacter : MonoBehaviour
 
         Vector2 movementDir = new Vector2(horizontal, vertical);
 
-        
-        
+
+
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -101,12 +102,12 @@ public class MainCharacter : MonoBehaviour
             transform.Rotate(0, horizontal * mouseSensitivity.x, 0);
         }
 
-        if (vertical != 0) 
+        if (vertical != 0)
         {
             Vector3 rotation = camera.transform.localEulerAngles;
             rotation.x = (rotation.x - vertical * mouseSensitivity.y + 360) % 360;
-            if (rotation.x > 80 && rotation.x < 180) {rotation.x = 80;} else
-            if (rotation.x < 280 && rotation.x > 180) { rotation.x = 280;}
+            if (rotation.x > 80 && rotation.x < 180) { rotation.x = 80; } else
+            if (rotation.x < 280 && rotation.x > 180) { rotation.x = 280; }
 
             camera.transform.localEulerAngles = rotation;
         }
@@ -150,7 +151,7 @@ public class MainCharacter : MonoBehaviour
         }
 
     }
-   
+
 
     private void StartWalking()
     {
@@ -193,4 +194,19 @@ public class MainCharacter : MonoBehaviour
         audioSource.PlayOneShot(audioClip);
     }
 
+    public void CargaSube(float dinero)
+    {
+        if (tarjetasube < 1000)
+        {
+            tarjetasube += dinero;
+        }
+    }
+    public void Sube(float restaSaldo)
+    {
+        if (tarjetasube > 500)
+        {
+            tarjetasube -= restaSaldo;
+
+        }
+    }
 }
