@@ -7,8 +7,7 @@ public class Molinete : MonoBehaviour
     [SerializeField] private Animator molinetedoor;
     [SerializeField] private float restaSaldo;
 
-    [ContextMenu("AbrirMolinete")]
-
+    
     public void Opendoor()
     {
         molinetedoor.SetBool("Abrir", true);
@@ -22,17 +21,19 @@ public class Molinete : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Sube(other.gameObject);
-        Opendoor();
-
+        ApoyaSube(other.gameObject);
     }
 
-    private void Sube(GameObject target)
+    private void ApoyaSube(GameObject target)
     {
         MainCharacter mainCharacter = target.GetComponent<MainCharacter>();
         if (mainCharacter != null)
         {
-            mainCharacter.Sube(restaSaldo * Time.fixedDeltaTime);
+            if(mainCharacter.saldoSube > 300)
+            {
+                mainCharacter.ApoyaSube(restaSaldo * Time.fixedDeltaTime);
+                Opendoor();
+            }
         }
     }
 

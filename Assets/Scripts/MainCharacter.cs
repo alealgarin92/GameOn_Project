@@ -24,7 +24,7 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
-    [SerializeField] private float tarjetasube;
+    public float saldoSube;
 
     private Camera camera;
     private float shootingCooldown;
@@ -196,17 +196,17 @@ public class MainCharacter : MonoBehaviour
 
     public void CargaSube(float dinero)
     {
-        if (tarjetasube < 1000)
+        if (saldoSube < 1000)
         {
-            tarjetasube += dinero;
+            saldoSube += dinero;
         }
     }
-        public void Sube(float restaSaldo)
+    public void ApoyaSube(float restaSaldo)
+    {
+        if (saldoSube > 500)
         {
-            if (tarjetasube > 500)
-            {
-                tarjetasube -= restaSaldo;
+            saldoSube -= restaSaldo;
 
-            }
         }
+    }
 }

@@ -17,6 +17,7 @@ public class SubeArea : MonoBehaviour
         if (mainCharacter != null)
         {
             mainCharacter.CargaSube(dinero * Time.fixedDeltaTime);
+            
         }
     }
 }
