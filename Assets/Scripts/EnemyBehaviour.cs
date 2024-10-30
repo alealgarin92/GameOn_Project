@@ -30,7 +30,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float pursuitThreshold;
     [SerializeField] private float rotationSpeed;
 
-    
+
     void Update()
     {
         CheckStateUpdate();
@@ -68,7 +68,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void LookRotationQuaternion()
     {
         var newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
-        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation,Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
     }
     private void CheckStateUpdate()
     {
@@ -76,9 +76,9 @@ public class EnemyBehaviour : MonoBehaviour
         var diff = transform.position - player.transform.position;
         var distance = diff.magnitude;
 
-        if(distance > pursuitThreshold )
+        if (distance > pursuitThreshold)
         {
-            if(startingtState == EnemyStates.Pursuit)
+            if (startingtState == EnemyStates.Pursuit)
             {
                 startingtState = EnemyStates.Stay;
             }
@@ -97,7 +97,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Pursuit()
     {
         LookRotationQuaternion();
-        
+
         transform.position += transform.forward * (Time.deltaTime * movementSpeed);
     }
 
@@ -110,7 +110,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         transform.position += diff * (Time.deltaTime * movementSpeed);
     }
-     
+
     private void RandomMovement()
     {
 
