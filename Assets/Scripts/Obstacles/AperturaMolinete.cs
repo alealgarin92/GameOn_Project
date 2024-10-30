@@ -23,6 +23,7 @@ public class Molinete : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Sube(other.gameObject);
+        Opendoor();
 
     }
 

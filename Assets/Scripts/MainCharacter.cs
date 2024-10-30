@@ -201,12 +201,12 @@ public class MainCharacter : MonoBehaviour
             tarjetasube += dinero;
         }
     }
-    public void Sube(float restaSaldo)
-    {
-        if (tarjetasube > 500)
+        public void Sube(float restaSaldo)
         {
-            tarjetasube -= restaSaldo;
+            if (tarjetasube > 500)
+            {
+                tarjetasube -= restaSaldo;
 
+            }
         }
-    }
 }
