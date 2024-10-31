@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class MainCharacter : MonoBehaviour
@@ -28,6 +29,8 @@ public class MainCharacter : MonoBehaviour
 
     private Camera camera;
     private float shootingCooldown;
+
+    private MenuInicial menu;
 
     private void Awake()
     {
@@ -64,6 +67,8 @@ public class MainCharacter : MonoBehaviour
         Move(movementDir);
 
         LookAtMouseDirection();
+
+        //Salir();
 
     }
 
@@ -127,11 +132,6 @@ public class MainCharacter : MonoBehaviour
         transform.position += direction * movementSpeed * Time.deltaTime;
     }
 
-
-
-
-
-
     private void FixedUpdate()
     {
 
@@ -151,7 +151,6 @@ public class MainCharacter : MonoBehaviour
         }
 
     }
-
 
     private void StartWalking()
     {
@@ -207,6 +206,14 @@ public class MainCharacter : MonoBehaviour
         {
             saldoSube -= restaSaldo;
 
+        }
+    }
+
+    public void Salir()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            //Cargar menu principal
         }
     }
 }
