@@ -29,7 +29,8 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float movementSpeed;
     [SerializeField] private float pursuitThreshold;
     [SerializeField] private float rotationSpeed;
-
+    [SerializeField] private Animator characterAnimator;
+ 
 
     void Update()
     {
@@ -81,11 +82,13 @@ public class EnemyBehaviour : MonoBehaviour
             if (startingtState == EnemyStates.Pursuit)
             {
                 startingtState = EnemyStates.Stay;
+                Idle();
             }
         }
         else
         {
             startingtState = EnemyStates.Pursuit;
+            StartRuning();
         }
     }
 
@@ -109,6 +112,15 @@ public class EnemyBehaviour : MonoBehaviour
 
 
         transform.position += diff * (Time.deltaTime * movementSpeed);
+    }
+
+    private void StartRuning()
+    {
+        characterAnimator.SetBool("isRunning", true);
+    }
+    private void Idle()
+    {
+        characterAnimator.SetBool("isRunning", false);
     }
 
     private void RandomMovement()

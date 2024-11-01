@@ -136,8 +136,9 @@ MonoBehaviour:
   startingtState: 0
   player: {fileID: 0}
   movementSpeed: 3
-  pursuitThreshold: 3
+  pursuitThreshold: 5
   rotationSpeed: 3
+  characterAnimator: {fileID: 0}
 --- !u!1001 &9119862458235396970
 PrefabInstance:
   m_ObjectHideFlags: 0
