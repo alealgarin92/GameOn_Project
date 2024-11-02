@@ -11,7 +11,7 @@ public class EnemyState
 
 public enum EnemyStates
 {
-    Confused = 0,
+    Atacking = 0,
     Fleeing = 1,
     Pursuit = 2,
     Stay = 3,
@@ -30,7 +30,8 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float pursuitThreshold;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private Animator characterAnimator;
- 
+    [SerializeField] private float damage;
+
 
     void Update()
     {
@@ -38,8 +39,8 @@ public class EnemyBehaviour : MonoBehaviour
         //Todo
         switch (startingtState)
         {
-            case EnemyStates.Confused:
-                RandomMovement();
+            case EnemyStates.Atacking:
+                Atacking();
                 break;
             case EnemyStates.Fleeing:
                 Flee();
@@ -82,19 +83,18 @@ public class EnemyBehaviour : MonoBehaviour
             if (startingtState == EnemyStates.Pursuit)
             {
                 startingtState = EnemyStates.Stay;
-                Idle();
             }
         }
         else
         {
             startingtState = EnemyStates.Pursuit;
-            StartRuning();
+            
         }
     }
 
     private void Stay()
     {
-
+        Idle();
     }
 
     private void Pursuit()
@@ -102,6 +102,7 @@ public class EnemyBehaviour : MonoBehaviour
         LookRotationQuaternion();
 
         transform.position += transform.forward * (Time.deltaTime * movementSpeed);
+        StartRuning();
     }
 
     private void Flee()
@@ -123,8 +124,31 @@ public class EnemyBehaviour : MonoBehaviour
         characterAnimator.SetBool("isRunning", false);
     }
 
-    private void RandomMovement()
+    private void Atacking()
     {
+        characterAnimator.SetBool("isAtacking", true);
+    }
 
+
+    private void OnCollisionStay(Collision other)
+    {
+        var colliderGameObject = other.gameObject;
+        //Necesito chequear la tag/label/etiqueta de el gameobject
+
+        MainCharacter player = colliderGameObject.GetComponent<MainCharacter>();
+
+        if (player != null) //Tiene el componente player
+        {
+            //Es un player
+            Debug.Log("Choco contra el player");
+            Atacking();
+            player.TakeDamage(damage);
+        }
+        else
+        {
+            //No es un enemy
+            Debug.Log("No choco contra el player");
+            
+        }
     }
 }

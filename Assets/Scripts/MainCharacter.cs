@@ -8,15 +8,22 @@ using UnityEngine;
 public class MainCharacter : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
+    [SerializeField] private Linterna linterna;
     [SerializeField] private Vector2 mouseSensitivity;
     [SerializeField] private Transform raycastOrigin;
+    [SerializeField] private Transform raycastLanternOrigin;
+    
 
     [SerializeField] private float maxHealth;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float health;
     [SerializeField] private float jumpForce;
     [SerializeField] private float jumpCheckDistance;
+    [SerializeField] private float enemyCheckDistance;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private LayerMask enemyLayer;
+
+    [SerializeField] private float damagePerTick;
 
     [SerializeField] private Vector3 startingRotation;
 
@@ -24,6 +31,12 @@ public class MainCharacter : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+
+    private Linterna instantiatedLantern; // Variable para almacenar la linterna instanciada
+    private bool linternaEncendida = false; // Estado de la linterna (encendida/apagada)
+
+    private EnemyBehaviour targetEnemy;
+    private Enemy enemy;
 
     public float saldoSube;
 
@@ -61,6 +74,13 @@ public class MainCharacter : MonoBehaviour
             Jump();
         }
 
+        FlashLightCreate();
+
+        if (linternaEncendida)
+        {
+            FlashLightEnemy();
+        }
+
         MainCharacterMovements();
 
         movementDir = movementDir.normalized;
@@ -89,6 +109,18 @@ public class MainCharacter : MonoBehaviour
         {
             movementSpeed = 2;
             StartWalkingBack();
+
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            movementSpeed = 2;
+            StartWalkingLeft();
+
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            movementSpeed = 2;
+            StartWalkingRight();
 
         }
         else
@@ -134,7 +166,7 @@ public class MainCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        FlashLightEnemy();
     }
 
     private void Jump()
@@ -152,6 +184,43 @@ public class MainCharacter : MonoBehaviour
 
     }
 
+    private void FlashLightCreate()
+    {
+        if (Input.GetMouseButtonDown(0)) // Detecta clic izquierdo
+        {
+            if (!linternaEncendida)
+            {
+                // Enciende la linterna
+                instantiatedLantern = Instantiate(linterna, raycastLanternOrigin.position, raycastLanternOrigin.rotation);
+                instantiatedLantern.transform.SetParent(raycastLanternOrigin);
+                FlashLightEnemy();
+                linternaEncendida = true;
+            }
+            else
+            {
+                // Apaga la linterna si ya está encendida
+                Destroy(instantiatedLantern.gameObject);
+                instantiatedLantern = null;
+                linternaEncendida = false;
+            }
+        }
+    }
+
+    private void FlashLightEnemy()
+    {
+        // Realiza el Raycast cada frame mientras la linterna esté encendida
+        if (Physics.Raycast(raycastLanternOrigin.position, raycastLanternOrigin.forward, out RaycastHit hit, enemyCheckDistance, enemyLayer))
+        {
+            // Checkea si el objeto con el que choca el rayo tiene el componente Enemy
+            Enemy enemy = hit.collider.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                // Resta vida al enemigo usando el daño por tiempo
+                enemy.TakeDamage(damagePerTick * Time.deltaTime);
+            }
+        }
+    }
+
     private void StartWalking()
     {
         characterAnimator.SetBool("isWalking", true);
@@ -161,6 +230,16 @@ public class MainCharacter : MonoBehaviour
     private void StartWalkingBack()
     {
         characterAnimator.SetBool("isWalkingBack", true);
+    }
+
+    private void StartWalkingRight()
+    {
+        characterAnimator.SetBool("isWalkingRight", true);
+    }
+
+    private void StartWalkingLeft()
+    {
+        characterAnimator.SetBool("isWalkingLeft", true);
     }
     private void StartRuning()
     {
@@ -172,6 +251,8 @@ public class MainCharacter : MonoBehaviour
         characterAnimator.SetBool("isWalking", false);
         characterAnimator.SetBool("isRunning", false);
         characterAnimator.SetBool("isWalkingBack", false);
+        characterAnimator.SetBool("isWalkingRight", false);
+        characterAnimator.SetBool("isWalkingLeft", false);
     }
 
     public void Heal(float healAmount)
@@ -186,7 +267,10 @@ public class MainCharacter : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(raycastOrigin.position, raycastOrigin.position + Vector3.down * jumpCheckDistance);
+
+        Gizmos.DrawLine(raycastLanternOrigin.position, raycastLanternOrigin.position + transform.forward * enemyCheckDistance);
     }
+
 
     private void PlayJumpSound()
     {
@@ -209,11 +293,31 @@ public class MainCharacter : MonoBehaviour
         }
     }
 
+    private void PlayStepSound()
+    {
+        audioSource.Play();
+    }
+
     public void Salir()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
             //Cargar menu principal
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
