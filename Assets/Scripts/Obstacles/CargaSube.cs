@@ -5,7 +5,8 @@ using UnityEngine;
 public class SubeArea : MonoBehaviour
 {
     [SerializeField] private float dinero;
-    [SerializeField] private AudioClip sonidomonedas;
+    [SerializeField] private AudioClip audiomonedas;
+    [SerializeField] private AudioSource audioSource;
 
     private void OnTriggerStay(Collider other)
     {
@@ -18,6 +19,12 @@ public class SubeArea : MonoBehaviour
         if (mainCharacter != null)
         {
             mainCharacter.CargaSube(dinero * Time.fixedDeltaTime);
+            Playmonedas();
         }
     }
+    public void Playmonedas()
+    {
+        audioSource.PlayOneShot(audiomonedas);
+    }
+
 }
