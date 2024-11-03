@@ -23,15 +23,12 @@ public class EntradaTren : MonoBehaviour
 
     public void Puertasabiertas(GameObject target)
     {
-        Tren tren = target.GetComponent<Tren>();
-        if (tren != null)
   
         MainCharacter mainCharacter = target.GetComponent<MainCharacter>();
         if (mainCharacter != null)
         {
            Destroy(gameObject);
            AbrePuerta();
-           Destroy(gameObject);
         }
     }
 }
