@@ -7,7 +7,7 @@ public class AreaMusicaHippie : MonoBehaviour
     [SerializeField] private AudioClip musicahippie;
     [SerializeField] private AudioSource audioSourcemusica;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         MusicaChica(other.gameObject);
     }
@@ -21,6 +21,6 @@ public class AreaMusicaHippie : MonoBehaviour
     }
     public void Playmusichippie()
     {
-        audioSourcemusica.Play();
+        audioSourcemusica.PlayOneShot (musicahippie);
     }
 }
