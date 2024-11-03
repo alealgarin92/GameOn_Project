@@ -785,26 +785,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.8101065, y: 16.439295, z: 67.63685}
   m_Center: {x: 2.1616895, y: -0.0000012282126, z: -9.421272}
---- !u!1 &142926800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7713052237982817540, guid: 842d111f12bcf40e1a6e2a4c71e7fd14,
-    type: 3}
-  m_PrefabInstance: {fileID: 5697110196234151514}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &142926801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 142926800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc7d6ffb93c94fd2963117ce41fad45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 106173979}
-  levelMusic: 2
 --- !u!1001 &155736323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22597,11 +22577,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicController
       objectReference: {fileID: 0}
-    - target: {fileID: 1285547073665701004, guid: 2d26894f2c3d94e3290a34d6b1df099d,
-        type: 3}
-      propertyPath: level2
-      value: 
-      objectReference: {fileID: 8300000, guid: 34cb90f6a4e4b4ab6bd4c01cbd0a79f5, type: 3}
     - target: {fileID: 3050931689582023264, guid: 2d26894f2c3d94e3290a34d6b1df099d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22652,16 +22627,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8609476435357022036, guid: 2d26894f2c3d94e3290a34d6b1df099d,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8609476435357022036, guid: 2d26894f2c3d94e3290a34d6b1df099d,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.425
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22675,11 +22640,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5653201599779260240, guid: 842d111f12bcf40e1a6e2a4c71e7fd14,
+    - target: {fileID: 4752229641647492471, guid: 842d111f12bcf40e1a6e2a4c71e7fd14,
         type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 106173979}
     - target: {fileID: 6070194420230548802, guid: 842d111f12bcf40e1a6e2a4c71e7fd14,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22738,11 +22703,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7713052237982817540, guid: 842d111f12bcf40e1a6e2a4c71e7fd14,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 142926801}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 842d111f12bcf40e1a6e2a4c71e7fd14, type: 3}
 --- !u!1001 &6453177866713327578
 PrefabInstance:
