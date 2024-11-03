@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class Linterna : MonoBehaviour
 {
-
-    // Update is called once per frame
-    void Update()
+    public void Desapear()
     {
-        //Mover utilizando WASD
-
+        Destroy(gameObject);
     }
-
 }

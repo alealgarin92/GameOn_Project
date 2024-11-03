@@ -16,10 +16,10 @@ public class PasarNivel : MonoBehaviour
 
     private void FrontDoor(GameObject target)
     {
-        MainCharacter mainCharacter = target.GetComponent<MainCharacter>();
-        if (mainCharacter != null)
+        MainCharacter player = target.GetComponent<MainCharacter>();
+        if (player != null)
         {
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKey(KeyCode.F) && player.cantSube >=1 && player.cantLlaves >= 1)
             {
                 PasarNivelSubte();
             }

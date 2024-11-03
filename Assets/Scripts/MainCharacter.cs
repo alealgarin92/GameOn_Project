@@ -12,7 +12,7 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] private Vector2 mouseSensitivity;
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private Transform raycastLanternOrigin;
-    
+     
 
     [SerializeField] private float maxHealth;
     [SerializeField] private Rigidbody rb;
@@ -40,18 +40,23 @@ public class MainCharacter : MonoBehaviour
 
     public float saldoSube;
 
-    private Camera camera;
+    private new Camera camera;
     private float shootingCooldown;
 
     private MenuInicial menu;
 
+    private GameObject permanetLantern;
+
+    public int cantSube = 0;
+    public int cantLlaves = 0;
     private void Awake()
     {
         health = maxHealth;
 
-        //Linea que nos ayuda a boquear el puntero una vez presionado play
+        //Linea que nos ayuda a bloquear el puntero una vez presionado play
         Cursor.lockState = CursorLockMode.Locked;
         camera = Camera.main;
+        permanetLantern = GameObject.FindGameObjectWithTag("Linterna");
 
         characterAnimator = GetComponent<Animator>();
     }
@@ -74,7 +79,16 @@ public class MainCharacter : MonoBehaviour
             Jump();
         }
 
-        FlashLightCreate();
+      
+        if (permanetLantern != null)
+        {
+            linternaEncendida = false;
+        }
+        else
+        {
+            FlashLightCreate(); 
+        }
+        
 
         if (linternaEncendida)
         {
@@ -166,7 +180,6 @@ public class MainCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
-        FlashLightEnemy();
     }
 
     private void Jump()
@@ -206,6 +219,7 @@ public class MainCharacter : MonoBehaviour
         }
     }
 
+    
     private void FlashLightEnemy()
     {
         // Realiza el Raycast cada frame mientras la linterna esté encendida
@@ -220,6 +234,7 @@ public class MainCharacter : MonoBehaviour
             }
         }
     }
+
 
     private void StartWalking()
     {
