@@ -27,8 +27,8 @@ public class CloseMolinete : MonoBehaviour
         MainCharacter mainCharacter = target.GetComponent<MainCharacter>();
         if (mainCharacter != null)
         {
-            Closesound();
             Closedoor();
+            Closesound();
             Destroy(gameObject);
         }
     }

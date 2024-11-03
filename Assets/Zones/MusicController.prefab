@@ -48,7 +48,7 @@ MonoBehaviour:
   mainAudio: {fileID: 8609476435357022036}
   level1: {fileID: 0}
   level2: {fileID: 8300000, guid: 34cb90f6a4e4b4ab6bd4c01cbd0a79f5, type: 3}
-  level3: {fileID: 0}
+  level3: {fileID: 8300000, guid: 236f69a27f0394ff59cb9b819694f0f6, type: 3}
 --- !u!82 &8609476435357022036
 AudioSource:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.425
+  m_Volume: 0.228
   m_Pitch: 1
   Loop: 1
   Mute: 0
