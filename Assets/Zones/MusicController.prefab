@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainAudio: {fileID: 8609476435357022036}
-  level1: {fileID: 0}
+  level1: {fileID: 8300000, guid: 062c31fdd36852447ac1fe3f5762601c, type: 3}
   level2: {fileID: 8300000, guid: 34cb90f6a4e4b4ab6bd4c01cbd0a79f5, type: 3}
   level3: {fileID: 8300000, guid: 236f69a27f0394ff59cb9b819694f0f6, type: 3}
 --- !u!82 &8609476435357022036
@@ -59,9 +59,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.228
+  m_audioClip: {fileID: 8300000, guid: ce1b9b24923ccf447a91555198a297fc, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0

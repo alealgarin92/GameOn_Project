@@ -149,11 +149,13 @@ public class MainCharacter : MonoBehaviour
         float horizontal = Input.GetAxis("Mouse X");
         float vertical = Input.GetAxis("Mouse Y");
 
+        //Movimiento en eje horizontal
         if (horizontal != 0)
         {
             transform.Rotate(0, horizontal * mouseSensitivity.x, 0);
         }
 
+        //Porcio de funcion que limita el movimiento en eje Vertical
         if (vertical != 0)
         {
             Vector3 rotation = camera.transform.localEulerAngles;

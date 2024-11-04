@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PasarNivel : MonoBehaviour
+public class PasarNivel1 : MonoBehaviour
 {
     
     
@@ -15,13 +15,16 @@ public class PasarNivel : MonoBehaviour
     private void FrontDoor(GameObject target)
     {
         MainCharacter player = target.GetComponent<MainCharacter>();
-        if (player != null )
+        if (player != null)
         {
-            PasarNivelSubte();
+            if (Input.GetKey(KeyCode.F) && player.cantSube >= 1 && player.cantLlaves >= 1)
+            {
+                PasarNivelSubte();
+            }
         }
     }
 
-    
+
     public void PasarNivelSubte()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
