@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bd7a9ce9-310b-443c-8b41-f22a619a714f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOn_Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOn_Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nivel3_Oficina.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nivel3_Oficina.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dardo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dardo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainCharacter.cs" afterDir="false" />
-    </list>
+    <list default="true" id="bd7a9ce9-310b-443c-8b41-f22a619a714f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,7 +91,7 @@
       <workItem from="1730588482079" duration="428000" />
       <workItem from="1730597858938" duration="517000" />
       <workItem from="1730606013785" duration="2127000" />
-      <workItem from="1730671114726" duration="5710000" />
+      <workItem from="1730671114726" duration="6508000" />
     </task>
     <servers />
   </component>
