@@ -6,6 +6,12 @@ public class AreaMusicaHippie : MonoBehaviour
 { 
     [SerializeField] private AudioClip musicahippie;
     [SerializeField] private AudioSource audioSourcemusica;
+    [SerializeField] private Animator chicatocando;
+
+    public void Tocamusica()
+    {
+        chicatocando.SetBool("Toca", true);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +23,7 @@ public class AreaMusicaHippie : MonoBehaviour
         if (mainCharacter != null)
         {
             Playmusichippie();
+            Tocamusica();
         }
     }
     public void Playmusichippie()
