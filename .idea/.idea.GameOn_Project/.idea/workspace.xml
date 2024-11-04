@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bd7a9ce9-310b-443c-8b41-f22a619a714f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameOn_Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameOn_Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Dardo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Projectiles/Dardo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Nivel3_Oficina.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Nivel3_Oficina.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dardo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dardo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainCharacter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainCharacter.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +20,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.universal@14.0.10/Shaders/Lit.shader" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -91,7 +96,7 @@
       <workItem from="1730588482079" duration="428000" />
       <workItem from="1730597858938" duration="517000" />
       <workItem from="1730606013785" duration="2127000" />
-      <workItem from="1730671114726" duration="1013000" />
+      <workItem from="1730671114726" duration="5710000" />
     </task>
     <servers />
   </component>
