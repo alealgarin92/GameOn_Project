@@ -12,7 +12,7 @@ public class MenuPausa : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!pausa)
+            if (pausa== false)
             {
                 ObjetoMenuPausa.SetActive(true);
                 pausa = true;
