@@ -13,7 +13,7 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] private Vector2 mouseSensitivity;
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private Transform raycastLanternOrigin;
-     
+
 
     [SerializeField] private float maxHealth;
     [SerializeField] private Rigidbody rb;
@@ -229,14 +229,14 @@ public class MainCharacter : MonoBehaviour
     
     private void FlashLightEnemy()
     {
-        // Realiza el Raycast cada frame mientras la linterna est� encendida
+        // Realiza el Raycast cada frame mientras la linterna esta encendida
         if (Physics.Raycast(raycastLanternOrigin.position, raycastLanternOrigin.forward, out RaycastHit hit, enemyCheckDistance, enemyLayer))
         {
             // Checkea si el objeto con el que choca el rayo tiene el componente Enemy
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                // Resta vida al enemigo usando el da�o por tiempo
+                // Resta vida al enemigo 
                 enemy.TakeDamage(damagePerTick * Time.deltaTime);
             }
         }
@@ -247,6 +247,7 @@ public class MainCharacter : MonoBehaviour
     {
         characterAnimator.SetBool("isWalking", true);
         characterAnimator.SetBool("isRunning", false);
+        characterAnimator.SetBool("isJumping", false);
     }
 
     private void StartWalkingBack()
@@ -266,6 +267,7 @@ public class MainCharacter : MonoBehaviour
     private void StartRuning()
     {
         characterAnimator.SetBool("isRunning", true);
+
     }
 
     private void Idle()
@@ -275,6 +277,13 @@ public class MainCharacter : MonoBehaviour
         characterAnimator.SetBool("isWalkingBack", false);
         characterAnimator.SetBool("isWalkingRight", false);
         characterAnimator.SetBool("isWalkingLeft", false);
+        characterAnimator.SetBool("isJumping", false);
+
+    }
+
+    private void StartJumping()
+    {
+        characterAnimator.SetBool("isWalking", true);
     }
 
     public void Heal(float healAmount)
@@ -309,11 +318,6 @@ public class MainCharacter : MonoBehaviour
             saldoSube -= restaSaldo;
 
         }
-    }
-
-    private void PlayStepSound()
-    {
-        audioSource.Play();
     }
 
     public void Salir()

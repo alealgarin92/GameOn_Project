@@ -72,6 +72,8 @@ public class EnemyBehaviour : MonoBehaviour
         var newRotation = Quaternion.LookRotation(player.transform.position - transform.position);
         transform.rotation = Quaternion.Lerp(transform.rotation, newRotation, Time.deltaTime * rotationSpeed);
     }
+
+    //Se checkea el estado del enemigo
     private void CheckStateUpdate()
     {
         //Si el player esta muy lejos, me quedo quieto.
@@ -92,11 +94,13 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    //El enemigo esta quieto
     private void Stay()
     {
         Idle();
     }
 
+    //El enemigo gira hacia el jugador y lo persigue
     private void Pursuit()
     {
         LookRotationQuaternion();
@@ -105,7 +109,8 @@ public class EnemyBehaviour : MonoBehaviour
         StartRuning();
     }
 
-    private void Flee()
+    //El enemigo se aleja del jugador
+    public void Flee()
     {
         Vector3 a = player.transform.position;
         Vector3 b = transform.position;
@@ -143,12 +148,6 @@ public class EnemyBehaviour : MonoBehaviour
             Debug.Log("Choco contra el player");
             Atacking();
             player.TakeDamage(damage);
-        }
-        else
-        {
-            //No es un enemy
-            Debug.Log("No choco contra el player");
-            
         }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571489, b: 0.30692357, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028376, g: 0.22571531, b: 0.30692437, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3128,6 +3128,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1211783289}
+    - target: {fileID: 4524059629909908619, guid: 3da539feb7af69a4283c7b1afbc457bd,
+        type: 3}
+      propertyPath: pursuitThreshold
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6497839136361621264, guid: 3da539feb7af69a4283c7b1afbc457bd,
         type: 3}
       propertyPath: m_Name
@@ -4215,6 +4220,16 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1211783289}
+    - target: {fileID: 4524059629909908619, guid: 3da539feb7af69a4283c7b1afbc457bd,
+        type: 3}
+      propertyPath: startingtState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4524059629909908619, guid: 3da539feb7af69a4283c7b1afbc457bd,
+        type: 3}
+      propertyPath: pursuitThreshold
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6497839136361621264, guid: 3da539feb7af69a4283c7b1afbc457bd,
         type: 3}
       propertyPath: m_Name
@@ -4268,6 +4283,11 @@ PrefabInstance:
     - target: {fileID: 7500012403534468683, guid: 3da539feb7af69a4283c7b1afbc457bd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967242327148044746, guid: 3da539feb7af69a4283c7b1afbc457bd,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4583,6 +4603,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1211783289}
+    - target: {fileID: 4524059629909908619, guid: 3da539feb7af69a4283c7b1afbc457bd,
+        type: 3}
+      propertyPath: pursuitThreshold
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6497839136361621264, guid: 3da539feb7af69a4283c7b1afbc457bd,
         type: 3}
       propertyPath: m_Name

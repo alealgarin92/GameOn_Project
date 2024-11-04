@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
     private float health;
+    private EnemyBehaviour enemy;
     
     private void Awake()
     {
@@ -16,7 +17,12 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= 0)
+        //if (health <= 30)
+        //{
+        //    enemy.Flee();
+            
+        //}
+        if(health <= 0)
         {
             Die();
         }
