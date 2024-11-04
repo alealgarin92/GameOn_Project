@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Parlantes : MonoBehaviour
 {
-    [SerializeField] private AudioSource parlante; // Asigna el objeto parlante en el Inspector
-    private bool parlanteEncendido = false; // Estado del parlante
+    [SerializeField] private AudioSource parlante; 
+    private bool parlanteEncendido = false; 
 
     private void Update()
     {
-        // Llama a la función para encender/apagar el sonido si se presiona la tecla P
         if (Input.GetKeyDown(KeyCode.P))
         {
             ToggleParlante();
@@ -20,13 +19,12 @@ public class Parlantes : MonoBehaviour
     {
         if (parlanteEncendido)
         {
-            parlante.Stop(); // Apaga el sonido
+            parlante.Stop(); 
         }
         else
         {
-            parlante.Play(); // Enciende el sonido
+            parlante.Play(); 
         }
-        parlanteEncendido = !parlanteEncendido; // Cambia el estado
+        parlanteEncendido = !parlanteEncendido; 
     }
-
 }
