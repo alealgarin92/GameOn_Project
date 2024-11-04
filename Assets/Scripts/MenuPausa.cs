@@ -41,6 +41,8 @@ public class MenuPausa : MonoBehaviour
         pausa = false;
 
         Time.timeScale = 1;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         if (musicController != null)
         {
