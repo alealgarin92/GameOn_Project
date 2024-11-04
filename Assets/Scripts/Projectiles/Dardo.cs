@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dardo : MonoBehaviour
+public partial class Dardo : MonoBehaviour
 {
     public float life = 3;
 
