@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainCharacter : MonoBehaviour
 {
@@ -31,6 +32,12 @@ public class MainCharacter : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
+
+    //Patalla de derrota, victoria y pausa
+    [SerializeField] private GameObject pantallaMenuDerrota;
+
+    //Barra de vida
+    [SerializeField] private Image barraDeEstres;
 
     private Linterna instantiatedLantern; // Variable para almacenar la linterna instanciada
     private bool linternaEncendida = false; // Estado de la linterna (encendida/apagada)
@@ -72,13 +79,10 @@ public class MainCharacter : MonoBehaviour
         Vector2 movementDir = new Vector2(horizontal, vertical);
 
 
-
-
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
         }
-
       
         if (permanetLantern != null)
         {
@@ -89,7 +93,6 @@ public class MainCharacter : MonoBehaviour
             FlashLightCreate(); 
         }
         
-
         if (linternaEncendida)
         {
             FlashLightEnemy();
@@ -101,6 +104,8 @@ public class MainCharacter : MonoBehaviour
         Move(movementDir);
 
         LookAtMouseDirection();
+
+        barraDeEstres.fillAmount = health / maxHealth;
 
         //Salir();
 
@@ -213,7 +218,7 @@ public class MainCharacter : MonoBehaviour
             }
             else
             {
-                // Apaga la linterna si ya está encendida
+                // Apaga la linterna si ya estï¿½ encendida
                 Destroy(instantiatedLantern.gameObject);
                 instantiatedLantern = null;
                 linternaEncendida = false;
@@ -224,14 +229,14 @@ public class MainCharacter : MonoBehaviour
     
     private void FlashLightEnemy()
     {
-        // Realiza el Raycast cada frame mientras la linterna esté encendida
+        // Realiza el Raycast cada frame mientras la linterna estï¿½ encendida
         if (Physics.Raycast(raycastLanternOrigin.position, raycastLanternOrigin.forward, out RaycastHit hit, enemyCheckDistance, enemyLayer))
         {
             // Checkea si el objeto con el que choca el rayo tiene el componente Enemy
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                // Resta vida al enemigo usando el daño por tiempo
+                // Resta vida al enemigo usando el daï¿½o por tiempo
                 enemy.TakeDamage(damagePerTick * Time.deltaTime);
             }
         }
@@ -325,12 +330,17 @@ public class MainCharacter : MonoBehaviour
 
         if (health <= 0)
         {
-            Die();
+            //Die();
+            pantallaMenuDerrota.SetActive(true);
+            Time.timeScale = 0;
+
         }
     }
 
+    /*
     private void Die()
     {
         Destroy(gameObject);
     }
+    */
 }

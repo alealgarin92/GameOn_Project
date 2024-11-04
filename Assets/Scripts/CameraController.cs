@@ -9,6 +9,9 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float lerpspeed;
     [SerializeField] private GameObject camera1;
     [SerializeField] private GameObject camera2;
+    [SerializeField] private GameObject menuPausa;
+    [SerializeField] private GameObject pantallaDerrota;
+    [SerializeField] private GameObject pantallaVictoria;
 
 
 

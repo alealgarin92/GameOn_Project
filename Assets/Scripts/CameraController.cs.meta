@@ -3,7 +3,13 @@ guid: 5425165748c5948a59d0010d49a9c4fa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - camera1: {instanceID: 0}
+  - camera2: {instanceID: 0}
+  - menuPausa: {instanceID: 0}
+  - pantallaDerrota: {instanceID: 0}
+  - pantallaVictoria: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

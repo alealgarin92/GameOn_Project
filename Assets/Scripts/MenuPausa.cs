@@ -36,7 +36,7 @@ public class MenuPausa : MonoBehaviour
 
     public void Continuar()
     {
-        Debug.Log("Continuando juego desde el botón");
+        Debug.Log("Continuando juego desde el botï¿½n");
         ObjetoMenuPausa.SetActive(false);
         pausa = false;
 
