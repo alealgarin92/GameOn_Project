@@ -15,4 +15,5 @@ public class MenuInicial : MonoBehaviour
         Debug.Log("Saliendo del juego...");
         Application.Quit();
     }
+
 }

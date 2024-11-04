@@ -31,4 +31,15 @@ public class MusicController : MonoBehaviour
     {
         ChangeMusic(level3);
     }
+
+    //Pausar musica
+    public void PauseLevelMusic()
+    {
+        mainAudio.Pause();
+    }
+    public void ResumeLevelMusic()
+    {
+        mainAudio.UnPause();
+    }
+
 }  
