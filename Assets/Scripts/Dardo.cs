@@ -51,5 +51,4 @@ public partial class Dardo : MonoBehaviour
         dardo.SetParent(null); // Suelta el dardo para que quede en el mundo
         // Opcional: Puedes añadir física o dejar el dardo en una posición fija
     }
-
 }

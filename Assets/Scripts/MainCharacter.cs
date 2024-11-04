@@ -29,7 +29,7 @@ public class MainCharacter : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
-
+    
     private Linterna instantiatedLantern; // Variable para almacenar la linterna instanciada
     private bool linternaEncendida = false; // Estado de la linterna (encendida/apagada)
 
@@ -68,10 +68,7 @@ public class MainCharacter : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Vector2 movementDir = new Vector2(horizontal, vertical);
-
-
-
-
+        
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
@@ -92,7 +89,7 @@ public class MainCharacter : MonoBehaviour
         {
             FlashLightEnemy();
         }
-
+        
         MainCharacterMovements();
 
         movementDir = movementDir.normalized;
@@ -101,9 +98,8 @@ public class MainCharacter : MonoBehaviour
         LookAtMouseDirection();
 
         //Salir();
-
     }
-
+    
     private void MainCharacterMovements()
     {
         if (Input.GetKey(KeyCode.LeftShift))
@@ -334,3 +330,5 @@ public class MainCharacter : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+
