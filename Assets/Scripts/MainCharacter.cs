@@ -12,6 +12,8 @@ public class MainCharacter : MonoBehaviour
     [SerializeField] private Vector2 mouseSensitivity;
     [SerializeField] private Transform raycastOrigin;
     [SerializeField] private Transform raycastLanternOrigin;
+     
+
     [SerializeField] private float maxHealth;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float health;
@@ -29,7 +31,7 @@ public class MainCharacter : MonoBehaviour
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
-    
+
     private Linterna instantiatedLantern; // Variable para almacenar la linterna instanciada
     private bool linternaEncendida = false; // Estado de la linterna (encendida/apagada)
 
@@ -68,7 +70,10 @@ public class MainCharacter : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
 
         Vector2 movementDir = new Vector2(horizontal, vertical);
-        
+
+
+
+
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
@@ -89,7 +94,7 @@ public class MainCharacter : MonoBehaviour
         {
             FlashLightEnemy();
         }
-        
+
         MainCharacterMovements();
 
         movementDir = movementDir.normalized;
@@ -98,8 +103,10 @@ public class MainCharacter : MonoBehaviour
         LookAtMouseDirection();
 
         //Salir();
+
     }
-    
+
+    //Los distintos estados del personaje principal y sus animaciones
     private void MainCharacterMovements()
     {
         if (Input.GetKey(KeyCode.LeftShift))
@@ -186,7 +193,6 @@ public class MainCharacter : MonoBehaviour
         {
             Vector3 direction = Vector3.up; // Lo mismo que escribir new vector3(0,1,0);
             rb.AddForce(direction * jumpForce, ForceMode.Impulse);
-            PlayJumpSound();
         }
 
     }
@@ -205,7 +211,7 @@ public class MainCharacter : MonoBehaviour
             }
             else
             {
-                // Apaga la linterna si ya estï¿½ encendida
+                // Apaga la linterna si ya está encendida
                 Destroy(instantiatedLantern.gameObject);
                 instantiatedLantern = null;
                 linternaEncendida = false;
@@ -216,20 +222,20 @@ public class MainCharacter : MonoBehaviour
     
     private void FlashLightEnemy()
     {
-        // Realiza el Raycast cada frame mientras la linterna estï¿½ encendida
+        // Realiza el Raycast cada frame mientras la linterna esté encendida
         if (Physics.Raycast(raycastLanternOrigin.position, raycastLanternOrigin.forward, out RaycastHit hit, enemyCheckDistance, enemyLayer))
         {
             // Checkea si el objeto con el que choca el rayo tiene el componente Enemy
             Enemy enemy = hit.collider.GetComponent<Enemy>();
             if (enemy != null)
             {
-                // Resta vida al enemigo usando el daï¿½o por tiempo
+                // Resta vida al enemigo usando el daño por tiempo
                 enemy.TakeDamage(damagePerTick * Time.deltaTime);
             }
         }
     }
 
-
+    //Los estados de las distintas animcaciones
     private void StartWalking()
     {
         characterAnimator.SetBool("isWalking", true);
@@ -272,6 +278,7 @@ public class MainCharacter : MonoBehaviour
         }
     }
 
+    //Funcion para visualizar el raycast de salto y el de deteccion de enmigos
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -280,11 +287,6 @@ public class MainCharacter : MonoBehaviour
         Gizmos.DrawLine(raycastLanternOrigin.position, raycastLanternOrigin.position + transform.forward * enemyCheckDistance);
     }
 
-
-    private void PlayJumpSound()
-    {
-        audioSource.PlayOneShot(audioClip);
-    }
 
     public void CargaSube(float dinero)
     {
@@ -330,5 +332,3 @@ public class MainCharacter : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
-
