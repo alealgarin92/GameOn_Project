@@ -20,9 +20,9 @@ public class MenuDerrota : MonoBehaviour
 
 
     //Para reiniciar el nivel
-    public void ReiniciarElNivel()
+    public void ReiniciarElNivel(int nro)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(nro);
     }
 
     public void MenuInicial(int nro)
