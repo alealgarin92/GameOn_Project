@@ -246,7 +246,6 @@ public class MainCharacter : MonoBehaviour
     {
         characterAnimator.SetBool("isWalking", true);
         characterAnimator.SetBool("isRunning", false);
-        characterAnimator.SetBool("isJumping", false);
     }
 
     private void StartWalkingBack()
@@ -276,8 +275,6 @@ public class MainCharacter : MonoBehaviour
         characterAnimator.SetBool("isWalkingBack", false);
         characterAnimator.SetBool("isWalkingRight", false);
         characterAnimator.SetBool("isWalkingLeft", false);
-        characterAnimator.SetBool("isJumping", false);
-
     }
 
     private void StartJumping()
