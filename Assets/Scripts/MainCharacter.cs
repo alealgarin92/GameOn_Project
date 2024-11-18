@@ -56,10 +56,19 @@ public class MainCharacter : MonoBehaviour
 
     public int cantSube = 0;
     public int cantLlaves = 0;
+
+    //PRUEBA DE VIDA EN LUCES Y SOMBRAS
+    public float lifeChangeRate = 5f; // Cuánto aumenta o disminuye la vida por segundo
+    private bool isInLight = false; // Verifica si está en la luz o en la sombra
+
+    void Start()
+    {
+        // Inicializa la salud al máximo al inicio del juego
+        health = maxHealth;
+    }
+
     private void Awake()
     {
-        health = maxHealth;
-
         //Linea que nos ayuda a bloquear el puntero una vez presionado play
         Cursor.lockState = CursorLockMode.Locked;
         camera = Camera.main;
@@ -83,16 +92,16 @@ public class MainCharacter : MonoBehaviour
         {
             Jump();
         }
-      
+
         if (permanetLantern != null)
         {
             linternaEncendida = false;
         }
         else
         {
-            FlashLightCreate(); 
+            FlashLightCreate();
         }
-        
+
         if (linternaEncendida)
         {
             FlashLightEnemy();
@@ -107,9 +116,62 @@ public class MainCharacter : MonoBehaviour
 
         barraDeEstres.fillAmount = health / maxHealth;
 
-        //Salir();
+
+        //PRUEBA DE VIDA EN LUCES Y SOMBRAS
+        //La vida del jugador irá disminuyendo con el tiempo si sale de las zonas de luz.
+    
+        // Cambia la salud dependiendo de si está en la luz o en la sombra
+        if (isInLight)
+        {
+            IncreaseHealth(lifeChangeRate * Time.deltaTime);
+        }
+        else
+        {
+            DecreaseHealth(lifeChangeRate * Time.deltaTime);
+        }
+
+        // Limita la salud entre 0 y el máximo
+        health = Mathf.Clamp(health, 0, maxHealth);
+
+        // Si la salud llega a 0
+        if (health <= 0)
+        {
+            Debug.Log("El personaje ha muerto.");
+            PantallaDerrota();
+        }
 
     }
+
+    //-----------------------------------------------------------------
+    //Funciones para aumentar/disminuir la vida
+    private void IncreaseHealth(float amount)
+    {
+        health += amount;
+    }
+    private void DecreaseHealth(float amount)
+    {
+        health -= amount;
+    }
+
+    // Detecta si el personaje entra en una zona de luz
+    private void OnTriggerEnter(Collider tagDeLuz)
+    {
+        if (tagDeLuz.CompareTag("Light"))
+        {
+            isInLight = true;
+        }
+    }
+    // Detecta si el personaje sale de una zona de luz
+    private void OnTriggerExit(Collider tagDeLuz)
+    {
+        if (tagDeLuz.CompareTag("Light"))
+        {
+            isInLight = false;
+        }
+    }
+    //-----------------------------------------------------------------
+
+
 
     //Los distintos estados del personaje principal y sus animaciones
     private void MainCharacterMovements()
@@ -165,7 +227,8 @@ public class MainCharacter : MonoBehaviour
         {
             Vector3 rotation = camera.transform.localEulerAngles;
             rotation.x = (rotation.x - vertical * mouseSensitivity.y + 360) % 360;
-            if (rotation.x > 80 && rotation.x < 180) { rotation.x = 80; } else
+            if (rotation.x > 80 && rotation.x < 180) { rotation.x = 80; }
+            else
             if (rotation.x < 280 && rotation.x > 180) { rotation.x = 280; }
 
             camera.transform.localEulerAngles = rotation;
@@ -225,7 +288,7 @@ public class MainCharacter : MonoBehaviour
         }
     }
 
-    
+
     private void FlashLightEnemy()
     {
         // Realiza el Raycast cada frame mientras la linterna esta encendida
@@ -327,20 +390,15 @@ public class MainCharacter : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
+        PantallaDerrota();
+    }
 
+    private void PantallaDerrota()
+    {
         if (health <= 0)
         {
-            //Die();
             pantallaMenuDerrota.SetActive(true);
             Time.timeScale = 0;
-
         }
     }
-
-    /*
-    private void Die()
-    {
-        Destroy(gameObject);
-    }
-    */
 }
